@@ -1,18 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="bn">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>
-      GPX TRADER - বাইনারি ট্রেডিং সিগন্যাল
-    </title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-    <style>
-      * {
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GPX TRADER - বাইনারি ট্রেডিং সিগন্যাল</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: &#39;Segoe UI&#39;, Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
@@ -377,162 +376,133 @@
             }
         }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <div class="logo">
-          <i class="fas fa-chart-line"></i>
-          <h1>
-            GPX TRADER
-          </h1>
-        </div>
-        <p class="tagline">
-          বাইনারি ট্রেডিং সিগন্যাল বিশ্লেষণ - পরবর্তী ক্যান্ডেলের পূর্বাভাস
-        </p>
-      </header>
-      <div class="main-content">
-        <div class="input-section">
-          <h2 class="section-title">
-            <i class="fas fa-paste"></i>
-            চ্যাট বা চার্ট ইনপুট
-          </h2>
-          <textarea id="chatInput" placeholder="এখানে আপনার ট্রেডিং চ্যাট কপি করে পেস্ট করুন...">
-          </textarea>
-          <div class="file-upload" id="uploadArea">
-            <i class="fas fa-cloud-upload-alt"></i>
-            <p>
-              চার্টের স্ক্রিনশট আপলোড করতে ক্লিক করুন বা ফাইলটি এখানে ড্রপ করুন
-            </p>
-          </div>
-          <input accept="image/*" hidden="" id="fileInput" type="file" />
-          <div class="buttons">
-            <button class="btn btn-analyze" id="analyzeBtn">
-              <i class="fas fa-search"></i>
-              সিগন্যাল বিশ্লেষণ করুন
-            </button>
-            <button class="btn btn-clear" id="clearBtn">
-              <i class="fas fa-trash-alt"></i>
-              ক্লিয়ার করুন
-            </button>
-          </div>
-        </div>
-        <div class="result-section">
-          <div class="signal-card">
-            <h2 class="section-title">
-              <i class="fas fa-bullhorn"></i>
-              পরবর্তী ক্যান্ডেল সিগন্যাল
-            </h2>
-            <div class="signal-display">
-              <div class="signal neutral" id="signalDisplay">
-                ?
-              </div>
-            </div>
-            <div class="signal-text" id="signalText">
-              বিশ্লেষণের জন্য উপরের ইনপুট ব্যবহার করুন
-            </div>
-            <div class="confidence">
-              <div>
-                আত্মবিশ্বাসের মাত্রা:
-                <span id="confidenceValue">                0%
-</span>
-              </div>
-              <div class="confidence-bar">
-                <div class="confidence-level" id="confidenceLevel">
-                  0%
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="history">
-            <h3 class="history-title">
-              <i class="fas fa-history"></i>
-              সাম্প্রতিক সিগন্যাল ইতিহাস
-            </h3>
-            <div class="history-list" id="historyList">
-              <div class="history-item">
-                <div>
-                  কোন ডেটা পাওয়া যায়নি
-                </div>
-                <div class="history-time">
-                  --:--
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer>
-      </footer>
-    </div>
-    <script>
-      // Elements
-        const chatInput = document.getElementById(&#39;chatInput&#39;);
-        const uploadArea = document.getElementById(&#39;uploadArea&#39;);
-        const fileInput = document.getElementById(&#39;fileInput&#39;);
-        const analyzeBtn = document.getElementById(&#39;analyzeBtn&#39;);
-        const clearBtn = document.getElementById(&#39;clearBtn&#39;);
-        const signalDisplay = document.getElementById(&#39;signalDisplay&#39;);
-        const signalText = document.getElementById(&#39;signalText&#39;);
-        const confidenceValue = document.getElementById(&#39;confidenceValue&#39;);
-        const confidenceLevel = document.getElementById(&#39;confidenceLevel&#39;);
-        const historyList = document.getElementById(&#39;historyList&#39;);
+</head>
+<body>
+<div class="container">
+<header>
+<div class="logo">
+<i class="fas fa-chart-line"></i>
+<h1>GPX TRADER</h1>
+</div>
+<p class="tagline">বাইনারি ট্রেডিং সিগন্যাল বিশ্লেষণ - পরবর্তী ক্যান্ডেলের পূর্বাভাস</p>
+</header>
+<div class="main-content">
+<div class="input-section">
+<h2 class="section-title"><i class="fas fa-paste"></i> চ্যাট বা চার্ট ইনপুট</h2>
+<textarea id="chatInput" placeholder="এখানে আপনার ট্রেডিং চ্যাট কপি করে পেস্ট করুন..."></textarea>
+<div class="file-upload" id="uploadArea">
+<i class="fas fa-cloud-upload-alt"></i>
+<p>চার্টের স্ক্রিনশট আপলোড করতে ক্লিক করুন বা ফাইলটি এখানে ড্রপ করুন</p>
+</div>
+<input accept="image/*" hidden="" id="fileInput" type="file"/>
+<div class="buttons">
+<button class="btn btn-analyze" id="analyzeBtn">
+<i class="fas fa-search"></i> সিগন্যাল বিশ্লেষণ করুন
+                    </button>
+<button class="btn btn-clear" id="clearBtn">
+<i class="fas fa-trash-alt"></i> ক্লিয়ার করুন
+                    </button>
+</div>
+</div>
+<div class="result-section">
+<div class="signal-card">
+<h2 class="section-title"><i class="fas fa-bullhorn"></i> পরবর্তী ক্যান্ডেল সিগন্যাল</h2>
+<div class="signal-display">
+<div class="signal neutral" id="signalDisplay">
+                            ?
+                        </div>
+</div>
+<div class="signal-text" id="signalText">
+                        বিশ্লেষণের জন্য উপরের ইনপুট ব্যবহার করুন
+                    </div>
+<div class="confidence">
+<div>আত্মবিশ্বাসের মাত্রা: <span id="confidenceValue">0%</span></div>
+<div class="confidence-bar">
+<div class="confidence-level" id="confidenceLevel">0%</div>
+</div>
+</div>
+</div>
+<div class="history">
+<h3 class="history-title"><i class="fas fa-history"></i> সাম্প্রতিক সিগন্যাল ইতিহাস</h3>
+<div class="history-list" id="historyList">
+<div class="history-item">
+<div>কোন ডেটা পাওয়া যায়নি</div>
+<div class="history-time">--:--</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer></footer>
+</div>
+<script>
+        // Elements
+        const chatInput = document.getElementById('chatInput');
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        const clearBtn = document.getElementById('clearBtn');
+        const signalDisplay = document.getElementById('signalDisplay');
+        const signalText = document.getElementById('signalText');
+        const confidenceValue = document.getElementById('confidenceValue');
+        const confidenceLevel = document.getElementById('confidenceLevel');
+        const historyList = document.getElementById('historyList');
         
         // Event listeners
-        uploadArea.addEventListener(&#39;click&#39;, () =&gt; fileInput.click());
-        uploadArea.addEventListener(&#39;dragover&#39;, (e) =&gt; {
+        uploadArea.addEventListener('click', () => fileInput.click());
+        uploadArea.addEventListener('dragover', (e) => {
             e.preventDefault();
-            uploadArea.style.borderColor = &#39;#1abc9c&#39;;
-            uploadArea.style.background = &#39;rgba(26, 188, 156, 0.1)&#39;;
+            uploadArea.style.borderColor = '#1abc9c';
+            uploadArea.style.background = 'rgba(26, 188, 156, 0.1)';
         });
-        uploadArea.addEventListener(&#39;dragleave&#39;, () =&gt; {
-            uploadArea.style.borderColor = &#39;#3498db&#39;;
-            uploadArea.style.background = &#39;&#39;;
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.borderColor = '#3498db';
+            uploadArea.style.background = '';
         });
-        uploadArea.addEventListener(&#39;drop&#39;, (e) =&gt; {
+        uploadArea.addEventListener('drop', (e) => {
             e.preventDefault();
             if (e.dataTransfer.files.length) {
                 fileInput.files = e.dataTransfer.files;
-                uploadArea.innerHTML = `&lt;i class=&#34;fas fa-check-circle&#34;&gt;&lt;/i&gt;&lt;p&gt;ফাইল নির্বাচন করা হয়েছে: ${fileInput.files[0].name}&lt;/p&gt;`;
+                uploadArea.innerHTML = `<i class="fas fa-check-circle"></i><p>ফাইল নির্বাচন করা হয়েছে: ${fileInput.files[0].name}</p>`;
             }
         });
         
-        fileInput.addEventListener(&#39;change&#39;, () =&gt; {
+        fileInput.addEventListener('change', () => {
             if (fileInput.files.length) {
-                uploadArea.innerHTML = `&lt;i class=&#34;fas fa-check-circle&#34;&gt;&lt;/i&gt;&lt;p&gt;ফাইল নির্বাচন করা হয়েছে: ${fileInput.files[0].name}&lt;/p&gt;`;
+                uploadArea.innerHTML = `<i class="fas fa-check-circle"></i><p>ফাইল নির্বাচন করা হয়েছে: ${fileInput.files[0].name}</p>`;
             }
         });
         
-        analyzeBtn.addEventListener(&#39;click&#39;, analyzeSignal);
-        clearBtn.addEventListener(&#39;click&#39;, clearInputs);
+        analyzeBtn.addEventListener('click', analyzeSignal);
+        clearBtn.addEventListener('click', clearInputs);
         
         // Analysis function
         function analyzeSignal() {
             const chat = chatInput.value.trim();
             const file = fileInput.files[0];
             
-            if (!chat &amp;&amp; !file) {
-                alert(&#39;বিশ্লেষণের জন্য চ্যাট বা চার্টের ছবি ইনপুট দিন&#39;);
+            if (!chat && !file) {
+                alert('বিশ্লেষণের জন্য চ্যাট বা চার্টের ছবি ইনপুট দিন');
                 return;
             }
             
             // Show loading state
-            signalDisplay.innerHTML = &#39;&lt;i class=&#34;fas fa-spinner fa-spin&#34;&gt;&lt;/i&gt;&#39;;
-            signalDisplay.className = &#39;signal neutral&#39;;
-            signalText.textContent = &#39;বিশ্লেষণ করা হচ্ছে...&#39;;
+            signalDisplay.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            signalDisplay.className = 'signal neutral';
+            signalText.textContent = 'বিশ্লেষণ করা হচ্ছে...';
             
             // Simulate analysis delay
-            setTimeout(() =&gt; {
+            setTimeout(() => {
                 // Generate random signal (UP or DOWN)
-                const isUp = Math.random() &gt; 0.5;
+                const isUp = Math.random() > 0.5;
                 const confidence = Math.floor(Math.random() * 40) + 60; // 60-99%
                 
                 // Update signal display
-                signalDisplay.className = isUp ? &#39;signal signal-up&#39; : &#39;signal signal-down&#39;;
-                signalDisplay.textContent = isUp ? &#39;আপ&#39; : &#39;ডাউন&#39;;
+                signalDisplay.className = isUp ? 'signal signal-up' : 'signal signal-down';
+                signalDisplay.textContent = isUp ? 'আপ' : 'ডাউন';
                 signalText.textContent = isUp ? 
-                    &#39;পরবর্তী ক্যান্ডেলের জন্য শক্তিশালী আপ ট্রেন্ডের সম্ভাবনা&#39; : 
-                    &#39;পরবর্তী ক্যান্ডেলের জন্য ডাউন ট্রেন্ডের সম্ভাবনা&#39;;
+                    'পরবর্তী ক্যান্ডেলের জন্য শক্তিশালী আপ ট্রেন্ডের সম্ভাবনা' : 
+                    'পরবর্তী ক্যান্ডেলের জন্য ডাউন ট্রেন্ডের সম্ভাবনা';
                 
                 // Update confidence
                 confidenceValue.textContent = `${confidence}%`;
@@ -546,47 +516,47 @@
         
         function addToHistory(isUp, confidence) {
             const now = new Date();
-            const timeString = `${now.getHours()}:${now.getMinutes().toString().padStart(2, &#39;0&#39;)}`;
+            const timeString = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}`;
             
-            const historyItem = document.createElement(&#39;div&#39;);
-            historyItem.className = `history-item ${isUp ? &#39;up&#39; : &#39;down&#39;}`;
+            const historyItem = document.createElement('div');
+            historyItem.className = `history-item ${isUp ? 'up' : 'down'}`;
             historyItem.innerHTML = `
-                &lt;div&gt;${isUp ? &#39;আপ&#39; : &#39;ডাউন&#39;} সিগন্যাল (${confidence}% আত্মবিশ্বাস)&lt;/div&gt;
-                &lt;div class=&#34;history-time&#34;&gt;${timeString}&lt;/div&gt;
+                <div>${isUp ? 'আপ' : 'ডাউন'} সিগন্যাল (${confidence}% আত্মবিশ্বাস)</div>
+                <div class="history-time">${timeString}</div>
             `;
             
             // Clear placeholder if exists
-            if (historyList.firstChild?.textContent?.includes(&#39;কোন ডেটা পাওয়া যায়নি&#39;)) {
-                historyList.innerHTML = &#39;&#39;;
+            if (historyList.firstChild?.textContent?.includes('কোন ডেটা পাওয়া যায়নি')) {
+                historyList.innerHTML = '';
             }
             
             historyList.prepend(historyItem);
         }
         
         function clearInputs() {
-            chatInput.value = &#39;&#39;;
-            fileInput.value = &#39;&#39;;
-            uploadArea.innerHTML = &#39;&lt;i class=&#34;fas fa-cloud-upload-alt&#34;&gt;&lt;/i&gt;&lt;p&gt;চার্টের স্ক্রিনশট আপলোড করতে ক্লিক করুন বা ফাইলটি এখানে ড্রপ করুন&lt;/p&gt;&#39;;
+            chatInput.value = '';
+            fileInput.value = '';
+            uploadArea.innerHTML = '<i class="fas fa-cloud-upload-alt"></i><p>চার্টের স্ক্রিনশট আপলোড করতে ক্লিক করুন বা ফাইলটি এখানে ড্রপ করুন</p>';
             
             // Reset signal display
-            signalDisplay.className = &#39;signal neutral&#39;;
-            signalDisplay.textContent = &#39;?&#39;;
-            signalText.textContent = &#39;বিশ্লেষণের জন্য উপরের ইনপুট ব্যবহার করুন&#39;;
-            confidenceValue.textContent = &#39;0%&#39;;
-            confidenceLevel.style.width = &#39;0%&#39;;
-            confidenceLevel.textContent = &#39;0%&#39;;
+            signalDisplay.className = 'signal neutral';
+            signalDisplay.textContent = '?';
+            signalText.textContent = 'বিশ্লেষণের জন্য উপরের ইনপুট ব্যবহার করুন';
+            confidenceValue.textContent = '0%';
+            confidenceLevel.style.width = '0%';
+            confidenceLevel.textContent = '0%';
         }
         
         // Initialize with demo data
         window.onload = function() {
             // Add a sample history item
-            setTimeout(() =&gt; {
-                historyList.innerHTML = &#39;&#39;;
+            setTimeout(() => {
+                historyList.innerHTML = '';
                 addToHistory(true, 82);
                 addToHistory(false, 76);
                 addToHistory(true, 91);
             }, 1000);
         };
     </script>
-  </body>
+</body>
 </html>
