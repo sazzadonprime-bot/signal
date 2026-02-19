@@ -389,7 +389,7 @@
 <div class="main-content">
 <div class="input-section">
 <h2 class="section-title"><i class="fas fa-paste"></i> Chat or chart input</h2>
-<textarea id="chatInput" placeholder="এখানে আপনার ট্রেডিং চ্যাট কপি করে পেস্ট করুন..."></textarea>
+<textarea id="chatInput" placeholder="Copy and paste your trading chat here..."></textarea>
 <div class="file-upload" id="uploadArea">
 <i class="fas fa-cloud-upload-alt"></i>
 <p>Click to upload a screenshot of the chart or drop the file here.</p>
@@ -463,13 +463,13 @@
             e.preventDefault();
             if (e.dataTransfer.files.length) {
                 fileInput.files = e.dataTransfer.files;
-                uploadArea.innerHTML = `<i class="fas fa-check-circle"></i><p>ফাইল নির্বাচন করা হয়েছে: ${fileInput.files[0].name}</p>`;
+                uploadArea.innerHTML = `<i class="fas fa-check-circle"></i><p>File selected: ${fileInput.files[0].name}</p>`;
             }
         });
         
         fileInput.addEventListener('change', () => {
             if (fileInput.files.length) {
-                uploadArea.innerHTML = `<i class="fas fa-check-circle"></i><p>ফাইল নির্বাচন করা হয়েছে: ${fileInput.files[0].name}</p>`;
+                uploadArea.innerHTML = `<i class="fas fa-check-circle"></i><p>File selected: ${fileInput.files[0].name}</p>`;
             }
         });
         
@@ -482,14 +482,14 @@
             const file = fileInput.files[0];
             
             if (!chat && !file) {
-                alert('বিশ্লেষণের জন্য চ্যাট বা চার্টের ছবি ইনপুট দিন');
+                alert('Input chat or chart images for analysis.');
                 return;
             }
             
             // Show loading state
             signalDisplay.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
             signalDisplay.className = 'signal neutral';
-            signalText.textContent = 'বিশ্লেষণ করা হচ্ছে...';
+            signalText.textContent = 'To be analyzing...';
             
             // Simulate analysis delay
             setTimeout(() => {
@@ -499,10 +499,10 @@
                 
                 // Update signal display
                 signalDisplay.className = isUp ? 'signal signal-up' : 'signal signal-down';
-                signalDisplay.textContent = isUp ? 'আপ' : 'ডাউন';
+                signalDisplay.textContent = isUp ? 'Up' : 'Down';
                 signalText.textContent = isUp ? 
-                    'পরবর্তী ক্যান্ডেলের জন্য শক্তিশালী আপ ট্রেন্ডের সম্ভাবনা' : 
-                    'পরবর্তী ক্যান্ডেলের জন্য ডাউন ট্রেন্ডের সম্ভাবনা';
+                    'Strong uptrend likely for next candle' : 
+                    'Downtrend likely for the next candle';
                 
                 // Update confidence
                 confidenceValue.textContent = `${confidence}%`;
@@ -521,12 +521,12 @@
             const historyItem = document.createElement('div');
             historyItem.className = `history-item ${isUp ? 'up' : 'down'}`;
             historyItem.innerHTML = `
-                <div>${isUp ? 'আপ' : 'ডাউন'} সিগন্যাল (${confidence}% আত্মবিশ্বাস)</div>
+                <div>${isUp ? 'Up' : 'Down'} Signal (${confidence}% Accuracy)</div>
                 <div class="history-time">${timeString}</div>
             `;
             
             // Clear placeholder if exists
-            if (historyList.firstChild?.textContent?.includes('কোন ডেটা পাওয়া যায়নি')) {
+            if (historyList.firstChild?.textContent?.includes('No data available')) {
                 historyList.innerHTML = '';
             }
             
@@ -536,12 +536,12 @@
         function clearInputs() {
             chatInput.value = '';
             fileInput.value = '';
-            uploadArea.innerHTML = '<i class="fas fa-cloud-upload-alt"></i><p>চার্টের স্ক্রিনশট আপলোড করতে ক্লিক করুন বা ফাইলটি এখানে ড্রপ করুন</p>';
+            uploadArea.innerHTML = '<i class="fas fa-cloud-upload-alt"></i><p>Click to upload a screenshot of the chart or drop the file here.</p>';
             
             // Reset signal display
             signalDisplay.className = 'signal neutral';
             signalDisplay.textContent = '?';
-            signalText.textContent = 'বিশ্লেষণের জন্য উপরের ইনপুট ব্যবহার করুন';
+            signalText.textContent = 'Use the above input for analysis';
             confidenceValue.textContent = '0%';
             confidenceLevel.style.width = '0%';
             confidenceLevel.textContent = '0%';
